@@ -1,4 +1,3 @@
-﻿Imports System.IO
 Imports System.Net.Http
 Imports System.Text
 Imports System.Threading
@@ -34,23 +33,18 @@ Module Module1
     End Sub
 
     Sub Main()
-        Console.WriteLine("Enter the path to the file:")
-        Dim filePath As String = Console.ReadLine()
+        While True
+            Dim line As String = Console.ReadLine()
+            queue.Add(line)
 
-        If File.Exists(filePath) Then
-            Dim lines As String() = File.ReadAllLines(filePath)
-            For Each line As String In lines
-                queue.Add(line)
-                ThreadPool.QueueUserWorkItem(Sub() work(line))
+            For Each ip In queue
+                ThreadPool.QueueUserWorkItem(Sub() work(ip))
                 wg.WaitOne()
                 Thread.Sleep(2)
             Next
-        Else
-            Console.WriteLine("File not found.")
-        End If
 
-        Console.WriteLine("Processing complete.")
-        Console.ReadLine()
+            queue.Clear()
+        End While
     End Sub
 
 End Module
